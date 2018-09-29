@@ -1,4 +1,5 @@
-
+// 引入提示插件，二次确认删除
+require('sweetalert');
 window._ = require('lodash');
 
 /**
