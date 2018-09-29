@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Leoroll-Shop-Admin',
+    'name' => 'LeoRoll-Shop-Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => 'Leoroll Shop 管理后台',
+    'title' => 'LeoRoll Shop 管理后台',
 
     /*
     |--------------------------------------------------------------------------
@@ -207,7 +207,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-blue',
 
     /*
     |--------------------------------------------------------------------------
@@ -221,7 +221,7 @@ return [
     | "sidebar-mini".
     |
     */
-    'layout' => ['sidebar-mini', 'sidebar-collapse'],
+    'layout' => ['layout-mini'],
 
     /*
     |--------------------------------------------------------------------------
@@ -231,7 +231,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => '',
+    // 'login_background_image' => admin_asset('/vendor/laravel-admin/AdminLTE/dist/img/0469498eb9014a90aebaa31ca9773912b21bee12.jpg'),
 
     /*
     |--------------------------------------------------------------------------
