@@ -17,7 +17,7 @@
 // Route::get('/', 'PagesController@root')->name('root');
 
 Auth::routes();
-
+Route::get('/', 'PagesController@root')->name('root');
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/email_verify_notice', 'PagesController@emailVerifyNotice')->name('email_verify_notice');
 
