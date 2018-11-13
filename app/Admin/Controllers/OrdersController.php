@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Encore\Admin\Controllers\ModelForm;
 
 class OrdersController extends Controller
 {
@@ -35,12 +37,13 @@ class OrdersController extends Controller
      * @param Content $content
      * @return Content
      */
-    public function show($id, Content $content)
+    public function show(Order $order)
     {
-        return $content
-            ->header('Detail')
-            ->description('description')
-            ->body($this->detail($id));
+        return Admin::content(function(Content $content) use ($order){
+            $content->header('查看订单');
+            $content->description('订单详情');
+            $content->body(view('admin.orders.show', ['order' => $order]));
+        });
     }
 
     /**
