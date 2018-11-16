@@ -79,7 +79,7 @@
             @endif
           </div>
           <!-- 支付按钮开始 -->
-          @if(!$order->paied_at && !$order->closed)
+          @if(!$order->paid_at && !$order->closed)
             <div class="payment-buttons">
               <a class="btn btn-primary btn-sm" href="{{ route('payment.alipay', ['order' => $order->id]) }}">支付宝支付</a>
             </div>
@@ -87,7 +87,7 @@
           <!-- 如果订单的发货状态为已发货则展示确认收货按钮 -->
           @if($order->ship_status === \App\Models\Order::SHIP_STATUS_DELIVERED)
           <div class="receive-button">
-            // 将原本的表单替换成下面在这个按钮
+            <!-- 将原本的表单替换成下面在这个按钮 -->
 
             <!-- <form method="post" action="{{ route('orders.received', [$order->id]) }}"> -->
               <!-- csrf token 不能忘 -->
