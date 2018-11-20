@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('orders/{order}/received', 'OrdersController@received')->name('orders.received');
 		Route::get('orders/{order}/review', 'OrdersController@review')->name('orders.review.show');
 		Route::post('orders/{order}/review', 'OrdersController@sendReview')->name('orders.review.store');
+		Route::post('orders/{order}/apply_refund', 'OrdersController@applyRefund')->name('orders.apply_refund');
 	});
 	Route::get('/email_verification/verify', 'EmailVerificationController@verify')->name('email_verification.verify');
 	Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');
