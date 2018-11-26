@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illiminate\Http\Request;
+use Illuminate\Http\Request;
 
 class CouponCodeUnavailableException extends Exception
 {
