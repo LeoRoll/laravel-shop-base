@@ -15,7 +15,7 @@ $factory->define(OrderItem::class, function (Faker $faker) {
         'rating' 					=> null,
         'review'  				=> null,
         'reviewed_at'  		=> null,
-        'product_id'  		=> product->id,
+        'product_id'  		=> $product->id,
         'product_sku_id'  => $sku->id,
     ];
 });

@@ -19,7 +19,7 @@ $factory->define(Order::class, function (Faker $faker) {
 	// 30% 概率该订单使用了优惠券
 	if (random_int(0, 10) < 3) {
 			// 为了避免出现逻辑错误，我们只选择没有最低金额限制的优惠券
-			$coupon  = CouponCode::query()->where('min_mount', 0)->inRandomOrder()->first();
+			$coupon  = CouponCode::query()->where('min_amount', 0)->inRandomOrder()->first();
 			// 增加优惠券的使用量
 			$coupon->changeUsed();
 	}

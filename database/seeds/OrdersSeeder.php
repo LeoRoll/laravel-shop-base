@@ -35,7 +35,7 @@ class OrdersSeeder extends Seeder
     		});
     		// 如果有优惠券，则计算优惠后价格
     		if ($order->couponCode) {
-    				$total = $order->couponCode()->getAdjustedPrice($total);
+    				$total = $order->couponCode->getAdjustedPrice($total);
     		}
     		// 更新订单总价
     		$order->update([
@@ -43,21 +43,21 @@ class OrdersSeeder extends Seeder
     		]);
 
     		// 将这笔订单的商品合并到商品集合中
-    		$products = $product->merge($itmes->pluck('product'));
+    		$products = $product->merge($items->pluck('product'));
     	}
 
     	// 根据商品 ID 过滤掉重复的商品
     	$products->unique('id')->each(function (Product $product){
     		// 查出该商品的销量，评分、评价数
     		$result = OrderItem::query()->where('product_id', $product->id)
-    											 					->whereHas('order', function($query){
-    											 						$query->whereNotNull('paid_at');
+    									->whereHas('order', function($query){
+    											 	$query->whereNotNull('paid_at');
     											 					})
-    											 					->first([
-    											 						\DB::raw('count(*) as review_count'),
-    											 						\DB::raw('avg(rating) as rating'),
-    											 						\DB::raw('sum(amount) as sold_count'),
-    											 					]);
+    									->first([
+                                          \DB::raw('count(*) as review_count'),
+                                          \DB::raw('avg(rating) as rating'),
+                                          \DB::raw('sum(amount) as sold_count'),
+                                      ]);
     		$product->update([
     			'rating'         => $result->rating ?: 5, // 如果某个商品没有评分，则默认为 5 分
     			'review_count'	 => $result->review_count,
