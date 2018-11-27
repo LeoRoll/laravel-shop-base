@@ -38,8 +38,8 @@ class CouponCodesController extends Controller
     public function show($id, Content $content)
     {
         return $content
-            ->header('Detail')
-            ->description('description')
+            ->header('详情展示')
+            ->description('细节信息')
             ->body($this->detail($id));
     }
 
@@ -118,19 +118,19 @@ class CouponCodesController extends Controller
     {
         $show = new Show(CouponCode::findOrFail($id));
 
-        $show->id('Id');
-        $show->name('Name');
-        $show->code('Code');
-        $show->type('Type');
-        $show->value('Value');
-        $show->total('Total');
-        $show->used('Used');
-        $show->min_amount('Min amount');
-        $show->not_before('Not before');
-        $show->not_after('Not after');
-        $show->enabled('Enabled');
-        $show->created_at('Created at');
-        $show->updated_at('Updated at');
+        $show->id('序号');
+        $show->name('优惠券名称');
+        $show->code('优惠码');
+        $show->type('优惠券类型');
+        $show->value('折扣');
+        $show->total('优惠券总量');
+        $show->used('当前已兑换的数量');
+        $show->min_amount('最低金额');
+        $show->not_before('优惠券启用时间');
+        $show->not_after('优惠券截止时间');
+        $show->enabled('是否启用');
+        $show->created_at('优惠券创建时间');
+        $show->updated_at('优惠券更新时间');
 
         return $show;
     }
